@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/profile.css">
+</head>
+<body>
+    <div class="main">
+    <h1>welcome <%= user.name %></h1>
+    <h2>Make a post</h2>
+    <form action="/post" method="post">
+        <input type="text" name="content" placeholder="Write your thoughts">
+        <input type="submit" value="Create" id="create">
+    </form>
+    <div class="contentbox">
+        <% user.posts.reverse().forEach((post) => {%>
+            <div class="box">
+                <h2><%= user.name %></h2>
+                <h3><%= post.content %> </h3>
+                <a href="/like/<%=post._id%>" id="like">
+                    <%= post.likes.indexOf(user._id) === -1 ? "like" : "unlike" %>
+                </a>
+                <a href="/edit/<%=post._id%>" id="edit">Edit</a>
+                <a href="/delete/<%=post._id %>"  id="delete">Delete</a>
+            </div>
+            <%}) %>
+    </div>
+    <a href="/logout"><button>log out</button></a>
+    </div>
+</body>
+</html>

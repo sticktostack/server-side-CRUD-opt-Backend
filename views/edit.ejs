@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/edit.css">
+</head>
+<body>
+    <div class="main">
+        <h2>Edit Your Post</h2>
+        <form action="/edit/<%=post._id%>" method="post">
+            <input type="text" name="content" placeholder="Write your thoughts" value="<%=post.content%>">
+            <input type="submit" value="Update" id="update">
+        </form>
+        </div>
+</body>
+</html>
